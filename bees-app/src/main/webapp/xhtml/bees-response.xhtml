@@ -10,10 +10,16 @@
     <ui:composition template="template.xhtml">
         <ui:define name="content">
             <p>The student is confirmed: #{bees.firstName} #{bees.lastName}</p>
-                <h:form>
-                    <h:commandLink value="Again" action="#{userInfo.backToStartPage}"    id="again">
+                <!--<h:form>
+                    <h:commandLink value="Again" acti
+                    on="#{userInfo.backToStartPage}"    id="again">
+                        <f:ajax execute="@form" />
                     </h:commandLink>
-                </h:form>
+                    <h:outputText value="#{bees.mainContent}"/>
+                </h:form>-->
+            <h:link value="Again" outcome="kontaktai" >
+
+            </h:link>
         </ui:define>
     </ui:composition>
 

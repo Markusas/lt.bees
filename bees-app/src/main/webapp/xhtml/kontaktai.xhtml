@@ -10,11 +10,34 @@
     <h:body>
         <ui:composition template="template.xhtml">
             <ui:define name="content">
-                <div id="bees_form">
-                    <ui:insert name="footer">
-                        <ui:include src="#{bees.mainContent}"/>
-                    </ui:insert>
-                </div>
+
+                <h:form id="form">
+                    <ui:repeat var="contact" value="#{bees.contactsList}">
+                        #{contact.firstName}
+                        #{contact.lastName}
+
+                        <h:commandLink value="Delete" actionListener="#{bees.removeContact}">
+                            <f:attribute name="contact" value="#{contact}"/>
+                        </h:commandLink>
+
+
+                        <br/>
+
+                    </ui:repeat>
+
+
+                    <p>
+                        First Name
+                        <h:inputText id="firstName" value="#{bees.firstName}"/>
+                        <br/><br/>
+                        Last Name
+                        <h:inputText id="lastName" value="#{bees.lastName}"/>
+                        <br/><br/>
+                        <h:commandButton value="Add" action="#{bees.addContact}"/>
+
+                    </p>
+
+                </h:form>
 
             </ui:define>
         </ui:composition>
